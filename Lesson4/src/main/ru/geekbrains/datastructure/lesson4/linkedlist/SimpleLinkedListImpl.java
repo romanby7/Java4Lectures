@@ -1,5 +1,8 @@
 package ru.geekbrains.datastructure.lesson4.linkedlist;
 
+import java.util.Iterator;
+
+
 public class SimpleLinkedListImpl<E> implements LinkedList<E> {
 
     protected Entry<E> firstElement;
@@ -102,4 +105,88 @@ public class SimpleLinkedListImpl<E> implements LinkedList<E> {
     public Entry<E> getFirst() {
         return firstElement;
     }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new SimpleLinkedListIterator();
+    }
+
+    public class SimpleLinkedListIterator implements Iterator<E> {
+
+        Entry<E> current;
+        Entry<E> previous;
+
+        SimpleLinkedListIterator() {
+            this.current = firstElement;
+        }
+
+        public Entry<E> getCurrent() {
+            return current;
+        }
+
+        public E getCurrentValue() {
+            return current.getValue();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public E next() {
+            E value = current.getValue();
+            previous = current;
+            current = current.getNext();
+            return value;
+        }
+
+
+        @Override
+        public void remove() {
+            if (currentSize == 0) {
+                return;
+            }
+
+            if (this.current.getNext() == null && previous == null ) {
+                firstElement = null;
+            }
+            else if (current.getNext() != null && previous == null) {
+                firstElement = current.getNext();
+                current = firstElement;
+            }
+            else if (current.getNext() != null && previous != null) {
+                previous.setNext(current.getNext());
+                current = previous.getNext();
+            }
+            else if (current.getNext() == null && previous != null) {
+                previous.setNext(null);
+                current = previous;
+                previous = findPrevious(firstElement, current);
+            }
+
+            currentSize--;
+
+        }
+
+        private Entry<E> findPrevious(Entry<E> startElement, Entry<E> current) {
+
+            while (startElement != null) {
+                if (startElement.getNext() == current) {
+                    break;
+                }
+                startElement = startElement.getNext();
+
+            }
+
+            return startElement;
+        }
+
+        public void reset() {
+            current = firstElement;
+            previous = null;
+        }
+
+    }
+
 }

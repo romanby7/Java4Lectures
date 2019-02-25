@@ -1,5 +1,3 @@
-package ru.geekbrains.datastructure.lesson4;
-
 import ru.geekbrains.datastructure.lesson4.linkedlist.LinkedList;
 import ru.geekbrains.datastructure.lesson4.linkedlist.SimpleLinkedListImpl;
 
