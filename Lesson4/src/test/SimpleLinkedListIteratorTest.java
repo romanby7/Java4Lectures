@@ -7,12 +7,12 @@ import ru.geekbrains.datastructure.lesson4.linkedlist.SimpleLinkedListImpl;
 public class SimpleLinkedListIteratorTest {
     SimpleLinkedListImpl<Integer> linkedList;
     SimpleLinkedListImpl.SimpleLinkedListIterator itr;
-
+    private final int MAX_SIZE = 5999999;
 
     @Before
     public void initTests() {
         linkedList = new SimpleLinkedListImpl<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < MAX_SIZE; i++) {
             linkedList.insert(i);
 
         }
@@ -20,13 +20,12 @@ public class SimpleLinkedListIteratorTest {
         itr = (SimpleLinkedListImpl.SimpleLinkedListIterator) linkedList.iterator();
     }
 
-
     @Test
     public void testIterator() {
-        int i = 4;
+        int i = MAX_SIZE - 1;
         for (Integer o : linkedList
              ) {
-            Assert.assertSame(o, i);
+            Assert.assertEquals((int) o, i);
             i--;
         }
 
@@ -42,7 +41,7 @@ public class SimpleLinkedListIteratorTest {
             itr.next();
         }
 
-        Assert.assertSame(linkedList.getSize(), 4);
+        Assert.assertEquals(linkedList.getSize(), MAX_SIZE - 1);
 
         itr.reset();
         while (itr.hasNext()) {
@@ -52,7 +51,7 @@ public class SimpleLinkedListIteratorTest {
             itr.next();
         }
 
-        Assert.assertSame(linkedList.getSize(), 3);
+        Assert.assertEquals(linkedList.getSize(), MAX_SIZE - 2);
 
         itr.reset();
         while (itr.hasNext()) {
@@ -62,7 +61,7 @@ public class SimpleLinkedListIteratorTest {
             itr.next();
         }
 
-        Assert.assertSame(linkedList.getSize(), 2);
+        Assert.assertEquals(linkedList.getSize(), MAX_SIZE - 3);
 
         itr.reset();
         while (itr.hasNext()) {
@@ -72,7 +71,7 @@ public class SimpleLinkedListIteratorTest {
             itr.next();
         }
 
-        Assert.assertSame(linkedList.getSize(), 1);
+        Assert.assertEquals(linkedList.getSize(), MAX_SIZE - 4);
 
         itr.reset();
         while (itr.hasNext()) {
@@ -82,13 +81,7 @@ public class SimpleLinkedListIteratorTest {
             itr.next();
         }
 
-
-        for (Integer o: linkedList
-             ) {
-            System.out.println(o);
-        }
-
-        Assert.assertSame(linkedList.getSize(), 0);
+        Assert.assertEquals(linkedList.getSize(), MAX_SIZE - 5);
 
     }
 
@@ -103,7 +96,7 @@ public class SimpleLinkedListIteratorTest {
         itr.reset();
         itr.remove();
 
-        Assert.assertSame(linkedList.getSize(), 0);
+        Assert.assertEquals(linkedList.getSize(), 0);
 
     }
 
