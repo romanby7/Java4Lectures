@@ -23,9 +23,9 @@ public class SimpleLinkedListIteratorTest {
     @Test
     public void testIterator() {
         int i = MAX_SIZE - 1;
-        for (Integer o : linkedList
-             ) {
-            Assert.assertEquals((int) o, i);
+
+        for (Integer integer : linkedList) {
+            Assert.assertEquals((int) integer, i);
             i--;
         }
 
@@ -34,55 +34,21 @@ public class SimpleLinkedListIteratorTest {
     @Test
     public void testRemove1() {
 
-        while (itr.hasNext()) {
-            if ((Integer) itr.getCurrentValue() == 3) {
-                itr.remove();
-            }
-            itr.next();
+        int[] arr = {3, 4, 0, 2, 1};
+        for (int i = 0; i < arr.length - 1; i++) {
+            removeValue(arr[i]);
+            Assert.assertEquals(linkedList.getSize(), MAX_SIZE - (i + 1));
         }
+    }
 
-        Assert.assertEquals(linkedList.getSize(), MAX_SIZE - 1);
-
+    private void removeValue(int i) {
         itr.reset();
         while (itr.hasNext()) {
-            if ((Integer) itr.getCurrentValue() == 4) {
+            if ((Integer) itr.getCurrentValue() == i) {
                 itr.remove();
             }
             itr.next();
         }
-
-        Assert.assertEquals(linkedList.getSize(), MAX_SIZE - 2);
-
-        itr.reset();
-        while (itr.hasNext()) {
-            if ((Integer) itr.getCurrentValue() == 0) {
-                itr.remove();
-            }
-            itr.next();
-        }
-
-        Assert.assertEquals(linkedList.getSize(), MAX_SIZE - 3);
-
-        itr.reset();
-        while (itr.hasNext()) {
-            if ((Integer) itr.getCurrentValue() == 1 || (Integer) itr.getCurrentValue() == 2 ) {
-                itr.remove();
-            }
-            itr.next();
-        }
-
-        Assert.assertEquals(linkedList.getSize(), MAX_SIZE - 4);
-
-        itr.reset();
-        while (itr.hasNext()) {
-            if ((Integer) itr.getCurrentValue() == 1 ) {
-                itr.remove();
-            }
-            itr.next();
-        }
-
-        Assert.assertEquals(linkedList.getSize(), MAX_SIZE - 5);
-
     }
 
     @Test
