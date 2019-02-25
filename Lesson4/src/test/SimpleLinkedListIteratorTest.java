@@ -34,7 +34,7 @@ public class SimpleLinkedListIteratorTest {
     @Test
     public void testRemove1() {
 
-        int[] arr = {3, 4, 0, 2, 1};
+        int[] arr = {3, 4, 0, 2, 1, 599999, 1000,  5999998 };
         for (int i = 0; i < arr.length - 1; i++) {
             removeValue(arr[i]);
             Assert.assertEquals(linkedList.getSize(), MAX_SIZE - (i + 1));
