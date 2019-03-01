@@ -7,7 +7,7 @@ import ru.geekbrains.datastructure.lesson4.linkedlist.SimpleLinkedListImpl;
 public class SimpleLinkedListIteratorTest {
     SimpleLinkedListImpl<Integer> linkedList;
     SimpleLinkedListImpl.SimpleLinkedListIterator itr;
-    private final int MAX_SIZE = 5999999;
+    private final int MAX_SIZE = 10000;
 
     @Before
     public void initTests() {
@@ -28,13 +28,12 @@ public class SimpleLinkedListIteratorTest {
             Assert.assertEquals((int) integer, i);
             i--;
         }
-
     }
 
     @Test
     public void testRemove1() {
 
-        int[] arr = {3, 4, 0, 2, 1, 599999, 1000,  5999998 };
+        int[] arr = {3, 4, 0, 2, 1, 1000};
         for (int i = 0; i < arr.length - 1; i++) {
             removeValue(arr[i]);
             Assert.assertEquals(linkedList.getSize(), MAX_SIZE - (i + 1));
@@ -65,5 +64,6 @@ public class SimpleLinkedListIteratorTest {
         Assert.assertEquals(linkedList.getSize(), 0);
 
     }
+
 
 }

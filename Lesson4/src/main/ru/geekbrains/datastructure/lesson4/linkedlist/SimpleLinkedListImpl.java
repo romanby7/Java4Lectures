@@ -148,12 +148,10 @@ public class SimpleLinkedListImpl<E> implements LinkedList<E> {
                 return;
             }
 
-            if (this.current.getNext() == null && previous == null ) {
-                firstElement = null;
-            }
-            else if (current.getNext() != null && previous == null) {
-                firstElement = current.getNext();
+            if (current == firstElement ) {
+                firstElement = firstElement.getNext();
                 current = firstElement;
+                previous = null;
             }
             else if (current.getNext() != null && previous != null) {
                 previous.setNext(current.getNext());
