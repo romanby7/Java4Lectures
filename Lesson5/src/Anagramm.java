@@ -4,7 +4,7 @@ import java.util.Set;
 public class Anagramm {
 
     public static void main(String[] args) {
-        Anagramm anagramm = new Anagramm("дата");
+        Anagramm anagramm = new Anagramm("датс");
         anagramm.getAnagramm();
     }
 
