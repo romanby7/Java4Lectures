@@ -1,5 +1,3 @@
-package KnapsackTask;
-
 public class MathFunc {
 
     public static float pow(long arg, int power) {
@@ -16,6 +14,5 @@ public class MathFunc {
             return (float) 1/pow(arg, -power);
         }
     }
-
 
 }
