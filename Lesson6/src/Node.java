@@ -3,9 +3,18 @@ import java.util.Objects;
 public class Node<E extends Comparable<? super E>> {
 
     private final E value;
+    private int level;
 
     private Node<E> leftChild;
     private Node<E> rightChild;
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
 
     public Node(E value) {
         this.value = value;
