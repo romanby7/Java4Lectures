@@ -5,7 +5,7 @@ public class Main6 {
 
     private static final int MAX_TREES = 20;
     private static final int MAX_KEY = 20;
-    private static final int MAX_LEVEL_DEPTH = 20;
+    private static final int MAX_LEVEL_DEPTH = 4;
     private static final Random random = new Random();
 
 

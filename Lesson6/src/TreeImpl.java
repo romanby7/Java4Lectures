@@ -37,7 +37,7 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E> {
             }
         }
 
-        if (previous.getLevel() <= maxLevelDepth) {
+        if (previous.getLevel() < maxLevelDepth) {
             if (previous.shouldLeftChild(value)) {
                 previous.setLeftChild(newNode);
             } else {
