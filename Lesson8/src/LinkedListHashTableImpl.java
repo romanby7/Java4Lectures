@@ -128,8 +128,13 @@ public class LinkedListHashTableImpl extends HashTableImpl {
     public void display() {
         System.out.println("-----------");
         for (int i = 0; i < data.length; i++) {
-            for (Entry e = data[i]; e != null; e = e.next ) {
-                System.out.print(String.format("%d = [%s]; ", i, e));
+            if (data[i] != null) {
+                for (Entry e = data[i]; e != null; e = e.next) {
+                    System.out.print(String.format("%d = [%s]; ", i, e));
+                }
+            }
+            else {
+                System.out.print(String.format("%d = [%s]; ", i, data[i]));
             }
 
             System.out.println();
