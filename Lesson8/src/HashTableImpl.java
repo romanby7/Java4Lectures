@@ -5,8 +5,8 @@ public class HashTableImpl implements HashTable {
 
     private class Entry {
 
-        private Item key;
-        private int value;
+        protected Item key;
+        protected int value;
 
         public Entry(Item key, int value) {
             this.key = key;
@@ -23,16 +23,16 @@ public class HashTableImpl implements HashTable {
     }
 
 
-    private Entry[] data;
-    private int size;
-    private int maxSize;
+    protected Entry[] data;
+    protected int size;
+    protected int maxSize;
 
     public HashTableImpl(int maxSize) {
         this.data = new Entry[maxSize * 2];
         this.maxSize = maxSize;
     }
 
-    private int hashFunc(int key) {
+    protected int hashFunc(int key) {
         return key % data.length;
     }
 
